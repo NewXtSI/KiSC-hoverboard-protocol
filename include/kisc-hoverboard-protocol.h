@@ -107,8 +107,10 @@ static inline uint16_t calculateMotorFeedbackChecksum(MotorFeedback feedback) {
            feedback.hallA ^ feedback.hallB ^ feedback.hallC;
 }
 
+#define         VALID_HEADER    0x5A5A
+
 typedef struct {
-    uint16_t start;
+    uint16_t        start;
     MotorFeedback   left, right;
     int16_t         batVoltage;
     int16_t         boardTemp;
@@ -121,15 +123,15 @@ typedef struct {
 
 static inline uint16_t calculateFeedbackChecksum(SerialFeedback feedback) {
     return feedback.start ^
-           calculateMotorFeedbackChecksum(feedback.left) ^
-           calculateMotorFeedbackChecksum(feedback.right) ^
-           feedback.batVoltage ^
-           feedback.boardTemp ^
-           feedback.timeoutCntSerial ^
-              feedback.cruiseCtrlAcv ^
-                feedback.standstillAcv ^
-                    feedback.electricBrakeAmount;
-                    
+            calculateMotorFeedbackChecksum(feedback.left) ^
+            calculateMotorFeedbackChecksum(feedback.right) ^
+            feedback.batVoltage ^
+            feedback.boardTemp ^
+            feedback.timeoutCntSerial ^
+            feedback.cruiseCtrlAcv ^
+            feedback.standstillAcv ^
+            feedback.electricBrakeAmount;
+
 }
 
 #ifdef __cplusplus
