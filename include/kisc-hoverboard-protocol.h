@@ -22,17 +22,17 @@ typedef enum {
 } ControlMode;
 
 typedef struct {
-    uint8_t enable;            // 1        0
+    uint16_t enable;            // 1        0
     int16_t pwm;            // 2        1
-    ControlType ctrlTyp:8;    // 1        3
-    ControlMode ctrlMod:8;    // 1        4
-    uint8_t iMotMax;        // 1        5
-    uint8_t iDcMax;         // 1        6
+    ControlType ctrlTyp:16;    // 1        3
+    ControlMode ctrlMod:16;    // 1        4
+    uint16_t iMotMax;        // 1        5
+    uint16_t iDcMax;         // 1        6
     uint16_t nMotMax;       // 2        7
-    uint8_t fieldWeakMax;   // 1        9
-    uint8_t phaseAdvMax;    // 1        10
-    uint8_t cruiseCtrlEna;     // 1        11
-    int16_t nCruiseMotTgt;  // 2        12
+    uint16_t fieldWeakMax;   // 1        9
+    uint16_t phaseAdvMax;    // 1        10
+    uint16_t cruiseCtrlEna;     // 1        11
+    uint16_t nCruiseMotTgt;  // 2        12
 } MotorState;
 
 static inline uint16_t calculateStateChecksum(MotorState state) {
@@ -51,8 +51,8 @@ static inline uint16_t calculateStateChecksum(MotorState state) {
 }
 
 typedef struct {
-    uint8_t freq;
-    uint8_t pattern;
+    uint16_t freq;
+    uint16_t pattern;
 } BuzzerState;
 
 static inline uint16_t calculateBuzzerChecksum(BuzzerState state) {
@@ -63,11 +63,11 @@ typedef struct {
     uint16_t        start;          // 2        0
     MotorState      left, right;    // 28       2
     BuzzerState     buzzer;         // 2        30
-    uint8_t            poweroff;       // 1        32
-    uint8_t            led;            // 1        33
-    uint8_t            cruiseCtrlAcv;  // 1        34
-    uint8_t            standstillAcv;  // 1        35
-    uint8_t         electricBrakeAmount;    // 1        36
+    uint16_t            poweroff;       // 1        32
+    uint16_t            led;            // 1        33
+    uint16_t            cruiseCtrlAcv;  // 1        34
+    uint16_t            standstillAcv;  // 1        35
+    uint16_t         electricBrakeAmount;    // 1        36
     uint16_t        checksum;    // 2        37
 } SerialCommand;
 
@@ -94,9 +94,9 @@ typedef struct {
     uint16_t  chops;
     int16_t   id;
     int16_t   iq;
-    uint8_t      hallA;
-    uint8_t      hallB;
-    uint8_t      hallC;
+    uint16_t      hallA;
+    uint16_t      hallB;
+    uint16_t      hallC;
 } MotorFeedback;
 
 static inline uint16_t calculateMotorFeedbackChecksum(MotorFeedback feedback) {
