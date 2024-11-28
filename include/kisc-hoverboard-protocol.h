@@ -24,8 +24,8 @@ typedef enum {
 typedef struct {
     uint16_t enable;            // 1        0
     int16_t pwm;            // 2        1
-    ControlType ctrlTyp:16;    // 1        3
-    ControlMode ctrlMod:16;    // 1        4
+    ControlType ctrlTyp:8;    // 1        3
+    ControlMode ctrlMod:8;    // 1        4
     uint16_t iMotMax;        // 1        5
     uint16_t iDcMax;         // 1        6
     uint16_t nMotMax;       // 2        7
