@@ -60,15 +60,15 @@ static inline uint16_t calculateBuzzerChecksum(BuzzerState state) {
 }
 
 typedef struct {
-    uint16_t        start;          // 2        0
-    MotorState      left, right;    // 28       2
-    BuzzerState     buzzer;         // 2        30
+    uint16_t            start;          // 2        0
+    MotorState          left, right;    // 28       2
+    BuzzerState         buzzer;         // 2        30
     uint16_t            poweroff;       // 1        32
     uint16_t            led;            // 1        33
     uint16_t            cruiseCtrlAcv;  // 1        34
     uint16_t            standstillAcv;  // 1        35
-    uint16_t         electricBrakeAmount;    // 1        36
-    uint16_t        checksum;    // 2        37
+    uint16_t            electricBrakeAmount;    // 1        36
+    uint16_t            checksum;    // 2        37
 } SerialCommand;
 
 static inline uint16_t calculateCommandChecksum(SerialCommand command) {

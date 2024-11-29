@@ -58,6 +58,12 @@
 //    Max speed 2 bytes
 //    Electric brake 1 byte
 
+typedef struct {
+    int16_t target;
+} KiSCMotorCommand;
 
-
+typedef struct {
+    KiSCMotorCommand left;
+    KiSCMotorCommand right;
+} KiSCCommand;
 #endif  /* INCLUDE_NEW_PROTOCOL_INCLUDED */
