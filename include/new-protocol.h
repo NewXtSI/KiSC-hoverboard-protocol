@@ -74,6 +74,18 @@
 //    Electric brake 1 byte
 //    Parking brake 1 byte
 
+#define HOVER_CMD_DEBUG_SIZE        8
+#define HOVER_CMD_DEBUG             0x09
+// Data:
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+//   Reserved 1 byte
+
 typedef struct {
     int16_t target;
     uint8_t  type;
